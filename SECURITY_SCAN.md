@@ -14,12 +14,8 @@ bandit -r src main.py -q
 
 ### `pip-audit`
 
-- **Status:** failed (vulnerability found)
-- **Findings:** 1 known vulnerability in 1 package.
-
-| Package | Version | Vulnerability ID | Fixed Version |
-|---|---:|---|---:|
-| pillow | 11.3.0 | CVE-2026-25990 | 12.1.1 |
+- **Status:** passed
+- **Result:** No known vulnerabilities found after pinning `pillow>=12.1.1` in `requirements.txt`.
 
 ### `bandit`
 
@@ -38,7 +34,7 @@ Notable issue classes reported:
 
 ## Recommended next actions
 
-1. Upgrade `pillow` in `requirements.txt` from `11.3.0` to `>=12.1.1`.
+1. Keep `pillow` pinned at `>=12.1.1` or newer.
 2. Review `pickle.load` usages in `src/f1_data.py` and ensure loaded files are trusted/signed.
 3. Review subprocess call sites to validate command arguments are not user-controlled.
 4. Replace broad `except Exception: pass/continue` blocks with narrower exception handling where possible.
